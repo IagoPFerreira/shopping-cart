@@ -1,27 +1,25 @@
-### Termos de acordos
+# Boas vindas ao repositório do projeto de Shopping Cart
 
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe.
+Esse projeto foi desenvolvido como um projeto avaliativo do curso de Desenvolvimento Web da [Trybe](https://www.betrybe.com/?utm_medium=cpc&utm_source=google&utm_campaign=Brand&utm_content=ad03_din_h), o objetivo desse projeto era construir uma aplicação fosse parecida a um carrinho de compras onde os itens para adicionar no carrinho são provenientes de uma API do Mercado Livre, dessa forma foi possível colocar em prática meus conhecimentos com requisições e códigos assíncronos, as tecnologias usadas para desenvolver esse projeto foram HTML, CSS e JavaScript.
 
-# Boas vindas ao repositório do projeto de Carrinho de Compras!
+Da sigla em inglês *Application Programming Interface*, uma API é um ponto de contato na internet com determinado serviço. Através de **requisições HTTP** a essa API é possível interagir com ela da forma como quem a criou planejou.
 
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
+Feito apenas com propósitos educacionais.
 
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir desse repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
+---
+
+## Preview do projeto
+
+![preview](./preview.gif)
 
 ---
 
 ## SUMÁRIO
 
-- [Habilidades](#habilidades)
-- [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
-  - [Protótipo do projeto](#protótipo-do-projeto)
-- [Data de entrega](#data-de-entrega)
-- [Como desenvolver](#como-desenvolver)
-  - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
-- [Requisitos do projeto](#requisitos-do-projeto)
-  - [Linter](#linter)
-  - [Execução de testes de requisito](#execução-de-testes-de-requisito)
-  - [API Shopping Cart](#api-shopping-cart)
+- [Boas vindas ao repositório do projeto Cookmaster!](#boas-vindas-ao-repositório-do-projeto-cookmaster)
+- [Preview do projeto](#Preview-do-projeto)
+- [Instalação do projeto localmente](#Instalação-do-projeto-localmente)
+- [API Shopping Cart](#api-shopping-cart)
 - [Lista de requisitos](#lista-de-requisitos)
   - [1 - Criar listagem de produtos](#1-criar-listagem-de-produtos)
   - [2 - Adicione o produto ao carrinho de compras](#2-adicione-o-produto-ao-carrinho-de-compras)
@@ -30,156 +28,48 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   - [5 - Some o valor total dos itens do carrinho de compras de forma assíncrona](#5-some-o-valor-total-dos-itens-do-carrinho-de-compras-de-forma-assíncrona)
   - [6 - Crie um botão para limpar carrinho de compras](#6-crie-um-botão-para-limpar-carrinho-de-compras)
   - [7 - Adicionar um texto de "loading" durante uma requisição à API](#7-adicionar-um-texto-de-"loading"-durante-uma-requisição-à-api)
-- [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
-  - [Durante o desenvolvimento](#durante-o-desenvolvimento)
-  - [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento-opcional)
-  - [Revisando um Pull Request](#revisando-um-pull-request)
-- [Avisos finais](#avisos-finais)
+- [Link para o deploy](#Link-para-o-deploy)
+- [Link para o repositorio do projeto](#Link-para-o-repositorio-do-projeto)
 
 ---
 
-## Habilidades
+## Instalação do projeto localmente
 
-Nesse projeto, você será capaz de:
+Após cada um dos passos, haverá um exemplo do comando a ser digitado para fazer o que está sendo pedido, caso tenha dificuldades e o exemplo não seja suficiente, não hesite em me contatar em *iago.pferreiravr@gmail.com*.
 
-- Fazer requisições a uma API *(Application Programming Interface)* do Mercado Livre;
-- Utilizar os seus conhecimentos sobre JavaScript, CSS e HTML;
-- Trabalhar com funções assíncronas;
+Passo 1. Abra o terminal e crie um duretório no local de sua preferência com o comando `mkdir`:
 
----
+~~~bash
+mkdir projetos-iago
+~~~
 
-## O que será desenvolvido
+Passo 2. Entre no diretório que você acabou de criar:
 
-Nesse projeto vocês farão um **carrinho de compras** totalmente dinâmico! E o melhor: consumindo dados diretamente de uma **API!** Isso mesmo. Da sigla em inglês _Application Programming Interface_, uma API é um ponto de contato na internet com determinado serviço. Através de **requisições HTTP** a essa API é possível interagir com ela da forma como quem a criou planejou. Aqui usaremos a API do Mercado Livre para buscarmos produtos à venda.
+~~~bash
+cd projetos-iago
+~~~
 
-### Protótipo do projeto
+Passo 3. Clone o projeto:
 
-Seu projeto deve ter o comportamento parecido com o do gif abaixo quando finalizado, **não se preocupe em replicar o visual, o gif so ilustra o comportamento**:
+~~~bash
+git clone git@github.com:IagoPFerreira/shopping-cart.git
+~~~
 
-![Project Gif](./out.gif)
+Passo 4. Após terminado a clonagem, abra o diretório clonado e dê um duplo clique no arquivo `index.html` e o projeto vai abrir em seu navegador, não é necessário instalar mais nada. A aplicação deve se parecer com essa:
 
----
-
-## Data de entrega
-
-  - Projeto individual;
-
-  - Serão `2` dias de projeto.
-  - Data de entrega para avaliação final do projeto: `22/04/2021 - 14:00h`.
+![preview](./shopping-cart.png)
 
 ---
 
-## Como desenvolver
+## API Shopping Cart
 
-### Antes de começar a desenvolver:
-
-1. Clone o repositório
-  * `git clone https://github.com/tryber/sd-010-a-project-shopping-cart.git`.
-  * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-010-a-project-shopping-cart`
-
-2. Crie uma branch a partir da branch `master`
-  * Verifique que você está na branch `master`
-    * Exemplo: `git branch`
-  * Se não estiver, mude para a branch `master`
-    * Exemplo: `git checkout master`
-  * Agora, crie uma branch onde você vai guardar os `commits` do seu projeto
-    * Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
-    * Exemplo: `git checkout -b joaozinho-project-shopping-cart`
-
-3. Quando fizer mudanças, adicione-as ao _stage_ do Git e faça um `commit`
-  * Verifique que as mudanças ainda não estão no _stage_
-    * Exemplo: `git status` (devem aparecer listados os novos arquivos em vermelho)
-  * Adicione o novo arquivo ao _stage_ do Git
-      * Exemplo:
-        * `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-        * `git status` (devem aparecer listados os arquivos em verde)
-  * Faça o `commit` inicial
-      * Exemplo:
-        * `git commit -m 'iniciando o projeto. VAMOS COM TUDO :rocket:'` (fazendo o primeiro commit)
-        * `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
-
-4. Adicione a sua branch com o novo `commit` ao repositório remoto
-  * Usando o exemplo anterior: `git push -u origin joaozinho-project-shopping-cart`
-
-5. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-010-a-project-shopping-cart/pulls)
-  * Clique no botão verde _"New pull request"_
-  * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
-  * Clique no botão verde _"Create pull request"_
-  * Adicione uma descrição para o _Pull Request_, um título claro que o identifique, e clique no botão verde _"Create pull request"_
-  * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-010-a-project-shopping-cart/pulls) e confira que o seu _Pull Request_ está criado
+O [manual da API do Mercado Livre](https://developers.mercadolivre.com.br/pt_br/itens-e-buscas) contém muitas informações sobre ela. Utilizaremos alguns dos *endpoints*, e a forma de uso está detalhada no primeiro requisito.
 
 ---
 
-## Durante o desenvolvimento
+## Lista de requisitos
 
-* ⚠ **LEMBRE-SE DE CRIAR TODOS OS ARQUIVOS DENTRO DA PASTA COM O SEU NOME** ⚠
-
-* Faça `commits` das alterações que você fizer no código regularmente;
-
-* Lembre-se de sempre após um ~~(ou alguns)~~ `commits` atualizar o repositório remoto (o famoso `git push`);
-
-* Os comandos que você utilizará com mais frequência são:
-
-  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_;
-
-  2. `git add` _(para adicionar arquivos ao stage do Git)_;
-
-  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_;
-
-  4. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_;
-
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_.
-
----
-
-## Requisitos do projeto
-
-Para entregar o seu projeto você deverá criar um Pull Request neste repositório. Este Pull Request deverá conter os arquivos `index.html`, `style.css` e `script.js`, que conterão seu código HTML, CSS e JavaScript, respectivamente. Você pode adicionar outros arquivos se julgar necessário. ⚠️ É importante que seus arquivos tenham exatamente estes nomes! ⚠️
-
-Você pode adicionar outros arquivos se julgar necessário. Qualquer dúvida, procure a monitoria. Lembre-se que você pode consultar nosso conteúdo sobre Git & GitHub sempre que quiser!
-
-A seguir, estão listados como será a avaliação do seu projeto e todos os requisitos que devem ser cumpridos. Leia-os atentamente e siga à risca o que for pedido. Em particular, **atente-se para os nomes de ids que alguns elementos de seu projeto devem possuir**. O não cumprimento de um requisito, total ou parcialmente, impactará em sua avaliação.
-
----
-
-## Linter
-
-Para garantir a qualidade do código, vamos utilizar neste projeto os linters `ESLint` e `StyleLint`.
-Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível
-e de fácil manutenção! Para roda-los localmente no projeto, execute os comandos abaixo:
-
-```bash
-npm run lint
-npm run lint:styles
-```
-
-⚠️ **PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS.
-ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO!** ⚠️
-
----
-
-### Execução de testes de requisito
-
-Os requisitos do seu projeto são avaliados automaticamente, sendo utilizada a resolução `1366 x 768` (1366 pixels de largura por 768 pixels de altura). Logo, recomenda-se desenvolver seu projeto usando a mesma resolução, via instalação [deste plugin](https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh?hl=en) do `Chrome` para facilitar a configuração dessa resolução.
-
-Você tem liberdade para adicionar novos comportamentos ao seu projeto, seja na forma de aperfeiçoamentos em requisitos propostos ou novas funcionalidades, **desde que tais comportamentos adicionais não conflitem com os requisitos propostos**. Em outras palavras, você pode fazer mais do que for pedido, mas nunca menos. Contudo, tenha em mente que **nada além do que for pedido nos requisitos será avaliado**. Esta é uma oportunidade de você exercitar sua criatividade e experimentar com os conhecimentos adquiridos.
-
-Para o projeto ser validado, todos os testes de comportamento devem passar. É possível testar isso localmente rodando `npm run cypress:open`. Esse comando roda a suite de testes do Cypress que valida se o fluxo geral e os requisitos funcionais estão funcionando como deveriam.
-
-Esses testes não consideram o layout de maneira geral, mas sim os atributos e informações corretas, então preste atenção nisso! Os testes te darão uma mensagem de erro caso não estejam passando (seja qual for o motivo). 😉
-
-Atenção: Sua aplicação deve estar rodando para o Cypress poder testar.
-
-### API Shopping Cart
-
-O [manual da API do Mercado Livre](https://developers.mercadolivre.com.br/pt_br/itens-e-buscas) contém muitas informações sobre ela. Utilizaremos alguns dos _endpoints_, e a forma de uso está detalhada no primeiro requisito.
-
----
-
-### Lista de requisitos
+⚠️ Por questões de entendimento do histórico de commits, estou deixando a lista de requisitos da mesma forma como me foi fornecida para a execução do projeto. ⚠️
 
 ---
 
@@ -187,14 +77,17 @@ O [manual da API do Mercado Livre](https://developers.mercadolivre.com.br/pt_br/
 
 Você deve criar uma listagem de produtos que devem ser consultados através da API do Mercado Livre.
 
-Você deve utilizar o _endpoint_:
-```javascript
+Você deve utilizar o *endpoint*:
+
+~~~javascript
 "https://api.mercadolibre.com/sites/MLB/search?q=$QUERY"
-```
+~~~
+
 onde `$QUERY` deve ser o valor da sua busca. Para este trabalho, a busca deve ser **obrigatoriamente** o termo `computador`.
 
-O retorno desse _endpoint_ será algo no formato `json`. Por exemplo, se for pesquisado "computador":
-```json
+O retorno desse *endpoint* será algo no formato `json`. Por exemplo, se for pesquisado "computador":
+
+~~~json
 {
     "site_id": "MLB",
     "query": "computador",
@@ -380,10 +273,11 @@ O retorno desse _endpoint_ será algo no formato `json`. Por exemplo, se for pes
         },
     ]
 }
-```
-A lista de produtos que devem ser exibidos é o _array_ `results` no `JSON` acima.
+~~~
 
-Você **deve** utilizar a função `createProductItemElement(product)` para criar os componentes _HTML_ referentes a um produto.
+A lista de produtos que devem ser exibidos é o *array* `results` no `JSON` acima.
+
+Você **deve** utilizar a função `createProductItemElement(product)` para criar os componentes *HTML* referentes a um produto.
 
 Adicione o elemento retornado da função `createProductItemElement(product)` como filho do elemento `<section class="items">`.
 
@@ -391,16 +285,19 @@ Adicione o elemento retornado da função `createProductItemElement(product)` co
 
 ### 2 - Adicione o produto ao carrinho de compras
 
-Cada produto na página _HTML_ possui um botão com o nome `Adicionar ao carrinho!`.
+Cada produto na página *HTML* possui um botão com o nome `Adicionar ao carrinho!`.
 
-Ao clicar nesse botão você deve realizar uma requisição para o _endpoint_:
-```javascript
+Ao clicar nesse botão você deve realizar uma requisição para o *endpoint*:
+
+~~~javascript
 "https://api.mercadolibre.com/items/$ItemID"
-```
+~~~
+
 onde `$ItemID` deve ser o valor `id` do item selecionado.
 
-Quando colocado o id `MLB1341706310` retorno desse _endpoint_ será algo no formato:
-```JSON
+Quando colocado o id `MLB1341706310` retorno desse *endpoint* será algo no formato:
+
+~~~JSON
 {
     "id": "MLB1341706310",
     "site_id": "MLB",
@@ -429,10 +326,11 @@ Quando colocado o id `MLB1341706310` retorno desse _endpoint_ será algo no form
     "health": null,
     "catalog_listing": true
 }
-```
+~~~
+
 Preste atenção que o JSON deve conter apenas **um** item.
 
-Você **deve** utilizar a função `createCartItemElement()` para criar os componentes _HTML_ referentes a um item do carrinho.
+Você **deve** utilizar a função `createCartItemElement()` para criar os componentes *HTML* referentes a um item do carrinho.
 
 Adicione o elemento retornado da função `createCartItemElement(product)` como filho do elemento `<ol class="cart__items">`.
 
@@ -462,32 +360,14 @@ Mostre a palavra "loading..." em algum lugar da página **apenas durante** a req
 
 ---
 
-## Depois de terminar o desenvolvimento
+## Link para o deploy
 
-Para sinalizar que o seu projeto está pronto para o _"Code Review"_ dos seus colegas, faça o seguinte:
-
-* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas:
-
-  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**;
-
-  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
-
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
-
-Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362189205).
+<https://iagopferreira.github.io/shopping-cart>
 
 ---
 
-## Revisando um pull request
+## Link para o repositorio do projeto
 
-Use o conteúdo sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os _Pull Requests_.
+<https://github.com/IagoPFerreira/shopping-cart>
 
----
-
-# Avisos finais
-
-Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência preenchendo o formulário. Leva menos de 3 minutos!
-
-Link: [FORMULÁRIO DE AVALIAÇÃO DE PROJETO](https://bit.ly/39qMu3s)
-
-O avaliador automático não necessariamente avalia seu projeto na ordem em que os requisitos aparecem no readme. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?
+[Voltar ao sumário](#Sumário)
