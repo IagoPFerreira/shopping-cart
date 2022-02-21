@@ -1,5 +1,5 @@
 let myArray = [];
-const cartItems = '.cart__items';
+const cartItems = '.cart__items'; // Sugestão de Wanderson Sales
 // ---------------------------------------------------- Loading -------------------------------------------------------------------
 
 function loading() {
@@ -33,7 +33,9 @@ function prices(array) {
   let value = 0;
   console.log('Array');
   console.log(array);
-  value = array.map((object) => object.salePrice).reduce((acc, curr) => acc + curr, 0);
+  value = array
+    .map((object) => object.salePrice)
+    .reduce((acc, curr) => acc + curr, 0);
   return value;
 }
 
@@ -58,7 +60,10 @@ function refreshShoppingCartPrice(array) {
   const span = document.querySelector('.total-price');
   const currentPrice = prices(array);
   const stringCurrentPrice = currentPrice.toFixed(2).toString();
-  if (currentPrice > currentPrice.toFixed() || currentPrice < currentPrice.toFixed()) {
+  if (
+    currentPrice > currentPrice.toFixed()
+    || currentPrice < currentPrice.toFixed()
+  ) {
     returnFixed(span, currentPrice, stringCurrentPrice);
   } else {
     span.innerText = `${currentPrice.toFixed()}`;
@@ -88,7 +93,9 @@ function createProductItemElement({ sku, name, image }) {
   section.appendChild(createCustomElement('span', 'item__sku', sku));
   section.appendChild(createCustomElement('span', 'item__title', name));
   section.appendChild(createProductImageElement(image));
-  section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
+  section.appendChild(
+    createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'),
+  );
 
   return section;
 }
@@ -100,12 +107,14 @@ function getSkuFromProductItem(item) {
 function cartItemClickListener(event) {
   const click = event.target;
   const clickContent = click.innerHTML;
-  myArray.map((object) => object.sku).forEach((id, index) => {
-    if (clickContent.includes(id)) {
-      myArray.splice(index, 1);
-      return myArray;
-    }
-  });
+  myArray
+    .map((object) => object.sku)
+    .forEach((id, index) => {
+      if (clickContent.includes(id)) {
+        myArray.splice(index, 1);
+        return myArray;
+      }
+    });
   click.remove();
   refreshLocalStorage(myArray);
   refreshShoppingCartPrice(myArray);
@@ -174,18 +183,17 @@ function fetchApi(url) {
 async function productsList() {
   const itensSection = document.querySelector('.items');
   const url = 'https://api.mercadolibre.com/sites/MLB/search?q=computador';
-  await fetchApi(url)
-    .then((results) => {
-      results.forEach((element) => {
-        const product = createProductItemElement({
-          sku: element.id,
-          name: element.title,
-          image: element.thumbnail,
-        });
-        itensSection.appendChild(product);
-        getButtons(product);
+  await fetchApi(url).then((results) => {
+    results.forEach((element) => {
+      const product = createProductItemElement({
+        sku: element.id,
+        name: element.title,
+        image: element.thumbnail,
       });
+      itensSection.appendChild(product);
+      getButtons(product);
     });
+  });
   getOutLoading();
 }
 
